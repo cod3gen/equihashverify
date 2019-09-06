@@ -45,8 +45,8 @@ void Verify(const v8::FunctionCallbackInfo<Value>& args) {
         return;
     }
 
-    Local<Object> header = args[0]->ToObject();
-    Local<Object> solution = args[1]->ToObject();
+    Local<Object> header = Nan::To<Object>(args[0]).ToLocalChecked();
+    Local<Object> solution = Nan::To<Object>(args[1]).ToLocalChecked();
 
     if(!node::Buffer::HasInstance(header) || !node::Buffer::HasInstance(solution)) {
         isolate->ThrowException(
