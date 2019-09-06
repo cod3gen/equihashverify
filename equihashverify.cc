@@ -75,7 +75,7 @@ void Verify(const v8::FunctionCallbackInfo<Value>& args) {
 
     std::vector<unsigned char> vecSolution(soln, soln + node::Buffer::Length(solution));
 
-    String::Utf8Value str(args[2]);
+	v8::String::Utf8Value str(v8::Isolate::GetCurrent(), Nan::To<v8::String>(args[2]).ToLocalChecked());
     const char* personalizationString = ToCString(str);
 
     // Validate for N, K (4th and 5th parameters)
