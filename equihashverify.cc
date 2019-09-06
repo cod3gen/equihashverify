@@ -91,7 +91,7 @@ void Verify(const v8::FunctionCallbackInfo<Value>& args) {
 }
 
 
-void Init(Handle<Object> exports) {
+void Init(Local<Object> exports) {
     NODE_SET_METHOD(exports, "verify", Verify);
 }
 
